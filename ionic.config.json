@@ -1,0 +1,8 @@
+{
+  "name": "wordbook",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "f8b1b76e"
+}
