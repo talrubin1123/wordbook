@@ -8,7 +8,7 @@ const Tab1: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle className='pageName'>Home</IonTitle>
+          <IonTitle className='pageName'>מה אתה רוצה?</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -18,7 +18,7 @@ const Tab1: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         {/* <ExploreContainer name="Tab 1 page" /> */}
-        <BasicTemplate name="מה אתה רוצה?">
+        <BasicTemplate name="בחר קטגוריה">
         </BasicTemplate>
       </IonContent>
     </IonPage>

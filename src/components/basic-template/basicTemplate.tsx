@@ -8,6 +8,7 @@ interface ContainerProps {
 
   interface MenuProps {
     name: string;
+    imageEntities: {name: string, src: string}[];
   }
 
 //   interface Box {
@@ -22,26 +23,39 @@ interface ContainerProps {
 //     );
 // }
 
-const Menu: React.FC<MenuProps> = ({ name }) => {
+const Menu: React.FC<MenuProps> = ({ name, imageEntities }) => {
+    const listItems = imageEntities.map((imgEntity) =>
+            <ImgEntity imgName={imgEntity.name} imgSrc={imgEntity.src}>
+            </ImgEntity>
+            );
     return (
         <div className='menu'>
-            <ImgEntity imgName='רותם' imgSrc={ImgSrc}>
-            </ImgEntity>
-            <ImgEntity imgName='כל' imgSrc={ImgSrc}>
-            </ImgEntity>
-            <ImgEntity imgName='הכבוד' imgSrc={ImgSrc}>
-            </ImgEntity>
+            <ul>{listItems}</ul>
         </div>
     )
 }
 
 const BasicTemplate: React.FC<ContainerProps> = ({ name }) => {
+    let imgEntities = [
+        {
+            name: "tomer",
+            src: "tomer"
+        },
+        {
+            name: "tomer",
+            src: "tomer"
+        }
+
+    ];
+
+    let json = JSON.stringify(imgEntities);
+
     return (
         <div>
-            <div className="basicTemplate">
-                 <strong>{name}</strong>
+            <div className="basicTemplּate">
+                 <strong></strong>
             </div>
-            <Menu name="menu">
+            <Menu name="menu" imageEntities={imgEntities}>
 
             </Menu>
         </div>

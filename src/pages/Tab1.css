@@ -1,3 +1,8 @@
 .pageName {
     text-align: center;
+    margin: 20px;
+    font-size: 0.3in;
+    font-family: 'Hanalei Fill', cursive;
+    font-family: 'gan';
+    direction: rtl;
 }
