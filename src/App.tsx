@@ -23,9 +23,8 @@ import '@ionic/react/css/text-transformation.css'
 import './theme/variables.css'
 
 import AddItem from './pages/AddItem'
-import Login from './components/login'
-import Register from './components/Register'
-import MainPage from './components/main-page'
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 setupIonicReact()
 
@@ -44,9 +43,6 @@ const App: React.FC = () => (
 				</Route>
 				<Route exact path='/register'>
 					<Register />
-				</Route>
-				<Route exact path='/main'>
-					<MainPage />
 				</Route>
 			</IonRouterOutlet>
 		</IonReactRouter>
