@@ -1,12 +1,8 @@
-import {
-    IonButton,
-    IonContent, IonImg,
-    IonInput, IonText
-} from '@ionic/react'
+import { IonButton, IonContent, IonImg, IonInput, IonText } from '@ionic/react'
 import React from 'react'
 import { useParams } from 'react-router'
-import { useRecoilState } from 'recoil'
-import { userState } from '../../atom/userAtom'
+import { useRecoilValue } from 'recoil'
+import { accessTokenState } from '../../atom/userAtom'
 import CategoryPicker from '../../components/CategoryPicker'
 import ImagePicker from '../../components/ImagePicker'
 import Image from '../../models/Image'
@@ -24,11 +20,6 @@ enum AddItemStep {
 	PickCategory = 3,
 }
 
-const imageSourceDisplayName = {
-	[ImageSource.LOCAL]: 'local storage',
-	[ImageSource.UNSPLASH]: 'Unsplash',
-}
-
 const IMAGE_PLACEHOLDER =
 	'https://background-filters.herokuapp.com/placeholder.jpg'
 
@@ -36,7 +27,7 @@ const AddItem: React.FC = () => {
 	const params = useParams<AddItemParams>()
 	const source = params.source as ImageSource
 
-	const [user] = useRecoilState(userState)
+	const accessToken = useRecoilValue(accessTokenState)
 
 	const [item, setItem] = React.useState<Item>({
 		title: '',
@@ -89,7 +80,7 @@ const AddItem: React.FC = () => {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'multipart/form-data',
-				Authorization: `Bearer ${user.accessToken}`,
+				Authorization: `Bearer ${accessToken}`,
 			},
 			body,
 		})

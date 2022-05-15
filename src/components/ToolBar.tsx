@@ -14,12 +14,15 @@ import {
 } from 'ionicons/icons'
 import imgIcon from '../icon/icon.png'
 
+import { userState } from '../atom/userAtom'
 import './ToolBar.css'
 
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useResetRecoilState } from 'recoil'
 
 const ToolBar: React.FC = () => {
+	const resetUserState = useResetRecoilState(userState)
 	const history = useHistory()
 	const [showPopover, setShowPopover] = useState<{
 		open: boolean
@@ -28,6 +31,13 @@ const ToolBar: React.FC = () => {
 		open: false,
 		event: undefined,
 	})
+
+	const logout = () => {
+		setShowPopover({ ...showPopover, open: false })
+		resetUserState()
+		history.push('/login')
+	}
+
 	return (
 		<IonToolbar>
 			<IonButtons slot='secondary'>
@@ -42,7 +52,7 @@ const ToolBar: React.FC = () => {
 								setShowPopover({ open: false, event: undefined })
 							}
 						>
-							<IonButton onClick={() => history.push('/')}>
+							<IonButton onClick={logout}>
 								log out
 								<IonIcon icon={logOutOutline} />
 							</IonButton>

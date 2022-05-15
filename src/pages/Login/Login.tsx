@@ -5,7 +5,11 @@ import { useRecoilState } from 'recoil'
 import { userState } from '../../atom/userAtom'
 import './Login.css'
 
-import { logInWithEmailAndPassword, signInWithGoogle, auth } from '../../firebase'
+import {
+	logInWithEmailAndPassword,
+	signInWithGoogle,
+	auth,
+} from '../../firebase'
 
 function Login() {
 	const [email, setEmail] = useState('')
@@ -40,7 +44,8 @@ function Login() {
 				<button
 					className='login__btn'
 					onClick={async () => {
-						setUserState(await logInWithEmailAndPassword(email, password))
+						const user = await logInWithEmailAndPassword(email, password)
+						setUserState(() => user)
 						loggedUser && history.push('/')
 					}}
 				>
@@ -48,8 +53,8 @@ function Login() {
 				</button>
 				<button
 					className='login__btn login__google'
-					onClick={async () => {
-						setUserState(await signInWithGoogle())
+					onClick={() => {
+						setUserState(async () => await signInWithGoogle())
 						loggedUser && history.push('/')
 					}}
 				>

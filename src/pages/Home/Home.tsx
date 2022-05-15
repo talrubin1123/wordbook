@@ -2,7 +2,8 @@ import {
 	IonContent,
 	IonFab,
 	IonFabButton,
-	IonFabList, IonIcon
+	IonFabList,
+	IonIcon
 } from '@ionic/react'
 import { add, fileTrayFull, search } from 'ionicons/icons'
 import React from 'react'
