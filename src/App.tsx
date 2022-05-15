@@ -20,8 +20,12 @@ import '@ionic/react/css/text-alignment.css'
 import '@ionic/react/css/text-transformation.css'
 
 /* Theme variables */
-import AddItem from './pages/AddItem'
 import './theme/variables.css'
+
+import AddItem from './pages/AddItem'
+import Login from './components/login'
+import Register from './components/Register'
+import MainPage from './components/main-page'
 
 setupIonicReact()
 
@@ -34,6 +38,15 @@ const App: React.FC = () => (
 				</Route>
 				<Route exact path='/item/add/:source'>
 					<AddItem />
+				</Route>
+				<Route exact path='/login'>
+					<Login />
+				</Route>
+				<Route exact path='/register'>
+					<Register />
+				</Route>
+				<Route exact path='/main'>
+					<MainPage />
 				</Route>
 			</IonRouterOutlet>
 		</IonReactRouter>
