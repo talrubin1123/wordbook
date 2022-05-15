@@ -31,7 +31,7 @@ function Login() {
     <div className="login">
       <div className="login__container">
         <input
-          type="text"
+          type="email"
           className="login__textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value!)}
