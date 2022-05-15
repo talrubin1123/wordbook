@@ -1,0 +1,11 @@
+.menu {
+    direction: rtl;
+}
+
+.basicTemplate {
+    text-align: center;
+    font-size: 0.3in;
+    font-family: 'Hanalei Fill', cursive;
+    font-family: 'gan';
+    direction: rtl;
+}
