@@ -1,0 +1,9 @@
+ion-img::part(image) {
+	height: 8rem;
+}
+
+.search-grid {
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+}
