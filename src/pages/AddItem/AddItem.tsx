@@ -74,7 +74,8 @@ const AddItem: React.FC = () => {
 		body.append('categories', JSON.stringify(item.categories))
 
 		if (item.image.file) body.append('image', item.image.file)
-		else body.append('image', item.image.url)
+		else
+			body.append('image', await fetch(item.image.url).then(res => res.blob()))
 
 		const response = await fetch('/api/items', {
 			method: 'POST',
@@ -90,7 +91,7 @@ const AddItem: React.FC = () => {
 
 	return (
 		<IonContent fullscreen>
-			<IonImg src={item.image.url} />
+			<IonImg src={item.image.url} style={{ paddingTop: '5rem' }} />
 			<IonText>{item.title}</IonText>
 			{step === AddItemStep.PickImage && (
 				<ImagePicker

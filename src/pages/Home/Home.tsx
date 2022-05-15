@@ -3,7 +3,7 @@ import {
 	IonFab,
 	IonFabButton,
 	IonFabList,
-	IonIcon
+	IonIcon,
 } from '@ionic/react'
 import { add, fileTrayFull, search } from 'ionicons/icons'
 import React from 'react'
