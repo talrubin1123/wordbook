@@ -1,11 +1,9 @@
 import {
 	IonButton,
 	IonCol,
-	IonContent,
 	IonGrid,
 	IonImg,
-	IonInput,
-	IonRow,
+	IonInput, IonRow
 } from '@ionic/react'
 import React from 'react'
 import './PickUnsplashImage.css'
@@ -17,9 +15,7 @@ interface PickUnsplashImageProps {
 	setImage: (url: string) => void
 }
 
-const PickUnsplashImage: React.FC<PickUnsplashImageProps> = ({
-	setImage,
-}) => {
+const PickUnsplashImage: React.FC<PickUnsplashImageProps> = ({ setImage }) => {
 	const [images, setImages] = React.useState<string[]>([])
 	const [searchTerm, setSearchTerm] = React.useState<string>('')
 
@@ -39,35 +35,39 @@ const PickUnsplashImage: React.FC<PickUnsplashImageProps> = ({
 	}
 
 	return (
-		<IonContent>
-			<IonInput
-				value={searchTerm}
-				placeholder='Search...'
-				onIonChange={e => setSearchTerm(e.detail.value!)}
-			/>
-			<IonButton onClick={() => searchUnsplash(searchTerm)}>Search</IonButton>
-			<IonGrid className='search-grid'>
-				{images.length > 0 &&
-					images
-						.reduce(
-							(acc: string[][], val: string) =>
-								acc.at(0)!.length === 3
-									? [[val], ...acc]
-									: [[...acc.at(0)!, val], ...acc.slice(1)],
-							[[]]
-						)
-						.reverse()
-						.map(image => (
-							<IonRow key={image.reduce((acc, val) => acc + val)}>
-								{image.map(url => (
-									<IonCol key={url}>
-										<IonImg src={url} onClick={() => setImage(url)} />
-									</IonCol>
-								))}
-							</IonRow>
-						))}
-			</IonGrid>
-		</IonContent>
+		<IonGrid>
+			<IonRow>
+				<IonInput
+					value={searchTerm}
+					placeholder='Search...'
+					onIonChange={e => setSearchTerm(e.detail.value!)}
+				/>
+				<IonButton onClick={() => searchUnsplash(searchTerm)}>Search</IonButton>
+			</IonRow>
+			<IonRow>
+				<IonGrid className='search-grid'>
+					{images.length > 0 &&
+						images
+							.reduce(
+								(acc: string[][], val: string) =>
+									acc.at(0)!.length === 3
+										? [[val], ...acc]
+										: [[...acc.at(0)!, val], ...acc.slice(1)],
+								[[]]
+							)
+							.reverse()
+							.map(image => (
+								<IonRow key={image.reduce((acc, val) => acc + val)}>
+									{image.map(url => (
+										<IonCol key={url}>
+											<IonImg src={url} onClick={() => setImage(url)} />
+										</IonCol>
+									))}
+								</IonRow>
+							))}
+				</IonGrid>
+			</IonRow>
+		</IonGrid>
 	)
 }
 
