@@ -4,12 +4,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useRecoilState } from "recoil";
 import {userState} from "../atom/userAtom";
 import "./login.css";
-import { IonInput, IonItem } from "@ionic/react";
-
-import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider,getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-
-import { getFirestore, addDoc, collection } from "firebase/firestore";
 
 import { logInWithEmailAndPassword, signInWithGoogle, auth } from "../firebase";
 
@@ -67,7 +61,7 @@ function Login() {
         <div>
         </div>
         <div>
-          Don't have an account? <Link to="/register">Register</Link> now.
+          Don't have an account? <Link id="registerBtn" to="/register">Register</Link> now.
         </div>
       </div>
     </div>

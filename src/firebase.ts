@@ -3,7 +3,6 @@ import { GoogleAuthProvider,getAuth, signInWithPopup, signInWithEmailAndPassword
 
 
 import { getFirestore, addDoc, collection } from "firebase/firestore";
-import {atom, useRecoilState} from 'recoil';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAsiEPQzvTbMlOWAFUIFESThZ7ED2tFqyY",
@@ -30,6 +29,7 @@ const signInWithGoogle = async () => {
   } catch (err) {
     console.error(err);
     alert(err);
+    
   }
 };
 

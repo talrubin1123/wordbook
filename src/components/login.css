@@ -10,7 +10,7 @@
   flex-direction: column;
   text-align: center;
   background-color: #dcdcdc;
-  padding: 30px;
+  padding: 35px;
 }
 .login__textBox {
   padding: 10px;
@@ -30,4 +30,7 @@
 }
 .login div {
   margin-top: 7px;
+}
+#registerBtn {
+    color: blue;
 }
