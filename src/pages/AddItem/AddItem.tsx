@@ -11,10 +11,12 @@ import {
 } from '@ionic/react'
 import React from 'react'
 import { useParams } from 'react-router'
+import { useRecoilState } from 'recoil'
+import { userState } from '../../atom/userAtom'
 import CategoryPicker from '../../components/CategoryPicker'
 import ImagePicker from '../../components/ImagePicker'
-import { ImageSource } from '../../models/ImageSource'
 import Image from '../../models/Image'
+import { ImageSource } from '../../models/ImageSource'
 import Item from '../../models/Item'
 import './AddItem.css'
 
@@ -39,6 +41,8 @@ const IMAGE_PLACEHOLDER =
 const AddItem: React.FC = () => {
 	const params = useParams<AddItemParams>()
 	const source = params.source as ImageSource
+
+	const [user] = useRecoilState(userState)
 
 	const [item, setItem] = React.useState<Item>({
 		title: '',
@@ -84,13 +88,14 @@ const AddItem: React.FC = () => {
 		body.append('title', item.title)
 		body.append('categories', JSON.stringify(item.categories))
 
-        if (item.image.file) body.append('image', item.image.file)
-        else body.append('image', item.image.url)
+		if (item.image.file) body.append('image', item.image.file)
+		else body.append('image', item.image.url)
 
 		const response = await fetch('/api/items', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'multipart/form-data',
+				Authorization: `Bearer ${user.accessToken}`,
 			},
 			body,
 		})

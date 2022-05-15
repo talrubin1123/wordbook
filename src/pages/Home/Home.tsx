@@ -6,12 +6,11 @@ import {
 	IonHeader,
 	IonIcon,
 	IonPage,
-	IonTitle,
-	IonToolbar,
 } from '@ionic/react'
 import { add, fileTrayFull, search } from 'ionicons/icons'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import ToolBar from '../../components/ToolBar'
 import { ImageSource } from '../../models/ImageSource'
 import './Home.css'
 
@@ -21,9 +20,7 @@ const Home: React.FC = () => {
 	return (
 		<IonPage>
 			<IonHeader>
-				<IonToolbar>
-					<IonTitle>Spic</IonTitle>
-				</IonToolbar>
+				<ToolBar />
 			</IonHeader>
 			<IonContent fullscreen>
 				<IonFab vertical='bottom' horizontal='end'>
