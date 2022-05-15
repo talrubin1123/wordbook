@@ -5622,6 +5622,11 @@ internal-slot@^1.0.3:
     has "^1.0.3"
     side-channel "^1.0.4"
 
+ionic-angular@^3.9.10:
+  version "3.9.10"
+  resolved "https://registry.yarnpkg.com/ionic-angular/-/ionic-angular-3.9.10.tgz#6b3514b05f6c668c7e852844b66779b9e9fb4515"
+  integrity sha512-4nmGrdpu4Zy3SZwF0AaS/3gDrbFGU1dV+zn1eqInFgFj9q20N1cIITgvyIcoxUI/IoqYiohsJX1rGY5vB/HrhQ==
+
 ionicons@^5.4.0:
   version "5.5.4"
   resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-5.5.4.tgz#5fef0c44038a630f5bb5f9a7dc83ec158bab95b1"

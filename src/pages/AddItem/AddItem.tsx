@@ -1,13 +1,7 @@
 import {
-	IonButton,
-	IonContent,
-	IonHeader,
-	IonImg,
-	IonInput,
-	IonPage,
-	IonText,
-	IonTitle,
-	IonToolbar,
+    IonButton,
+    IonContent, IonImg,
+    IonInput, IonText
 } from '@ionic/react'
 import React from 'react'
 import { useParams } from 'react-router'
@@ -104,50 +98,43 @@ const AddItem: React.FC = () => {
 	}
 
 	return (
-		<IonPage>
-			<IonHeader>
-				<IonToolbar>
-					<IonTitle>Add item from {imageSourceDisplayName[source]}</IonTitle>
-				</IonToolbar>
-			</IonHeader>
-			<IonContent fullscreen>
-				<IonImg src={item.image.url} />
-				<IonText>{item.title}</IonText>
-				{step === AddItemStep.PickImage && (
-					<ImagePicker
-						source={source}
-						setImage={image => setItem({ ...item, image })}
-					/>
-				)}
-				{step === AddItemStep.AddTitle && (
-					<IonInput
-						placeholder='Item name goes here...'
-						value={item.title}
-						onIonChange={e => setItem({ ...item, title: e.detail.value! })}
-					/>
-				)}
-				{step === AddItemStep.PickCategory && (
-					<CategoryPicker
-						selectedCategories={item.categories}
-						setSelectedCategories={selectedCategories =>
-							setItem({
-								...item,
-								categories: selectedCategories,
-							})
-						}
-					/>
-				)}
-				{step !== AddItemStep.PickImage && (
-					<IonButton onClick={() => setStep(step - 1)}>Back</IonButton>
-				)}
-				{step !== AddItemStep.PickCategory && (
-					<IonButton onClick={() => setStep(step + 1)}>Next</IonButton>
-				)}
-				{step === AddItemStep.PickCategory && (
-					<IonButton onClick={handleSubmit}>Submit</IonButton>
-				)}
-			</IonContent>
-		</IonPage>
+		<IonContent fullscreen>
+			<IonImg src={item.image.url} />
+			<IonText>{item.title}</IonText>
+			{step === AddItemStep.PickImage && (
+				<ImagePicker
+					source={source}
+					setImage={image => setItem({ ...item, image })}
+				/>
+			)}
+			{step === AddItemStep.AddTitle && (
+				<IonInput
+					placeholder='Item name goes here...'
+					value={item.title}
+					onIonChange={e => setItem({ ...item, title: e.detail.value! })}
+				/>
+			)}
+			{step === AddItemStep.PickCategory && (
+				<CategoryPicker
+					selectedCategories={item.categories}
+					setSelectedCategories={selectedCategories =>
+						setItem({
+							...item,
+							categories: selectedCategories,
+						})
+					}
+				/>
+			)}
+			{step !== AddItemStep.PickImage && (
+				<IonButton onClick={() => setStep(step - 1)}>Back</IonButton>
+			)}
+			{step !== AddItemStep.PickCategory && (
+				<IonButton onClick={() => setStep(step + 1)}>Next</IonButton>
+			)}
+			{step === AddItemStep.PickCategory && (
+				<IonButton onClick={handleSubmit}>Submit</IonButton>
+			)}
+		</IonContent>
 	)
 }
 

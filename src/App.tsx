@@ -1,4 +1,10 @@
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react'
+import {
+	IonApp,
+	IonHeader,
+	IonPage,
+	IonRouterOutlet,
+	setupIonicReact,
+} from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
 import { Route } from 'react-router-dom'
 import Home from './pages/Home'
@@ -22,6 +28,7 @@ import '@ionic/react/css/text-transformation.css'
 /* Theme variables */
 import './theme/variables.css'
 
+import ToolBar from './components/ToolBar'
 import AddItem from './pages/AddItem'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -30,22 +37,27 @@ setupIonicReact()
 
 const App: React.FC = () => (
 	<IonApp>
-		<IonReactRouter>
-			<IonRouterOutlet>
-				<Route exact path='/'>
-					<Home />
-				</Route>
-				<Route exact path='/item/add/:source'>
-					<AddItem />
-				</Route>
-				<Route exact path='/login'>
-					<Login />
-				</Route>
-				<Route exact path='/register'>
-					<Register />
-				</Route>
-			</IonRouterOutlet>
-		</IonReactRouter>
+		<IonPage>
+			<IonReactRouter>
+				<IonHeader>
+					<ToolBar />
+				</IonHeader>
+				<IonRouterOutlet>
+					<Route exact path='/'>
+						<Home />
+					</Route>
+					<Route exact path='/item/add/:source'>
+						<AddItem />
+					</Route>
+					<Route exact path='/login'>
+						<Login />
+					</Route>
+					<Route exact path='/register'>
+						<Register />
+					</Route>
+				</IonRouterOutlet>
+			</IonReactRouter>
+		</IonPage>
 	</IonApp>
 )
 
