@@ -5,6 +5,10 @@ import "./Register.css";
 import {auth, registerWithEmailAndPassword} from "../firebase";
 import {userState} from "../atom/userAtom";
 import { useRecoilState } from "recoil";
+import { IonImg } from '@ionic/react';
+
+import imgIcon from '../icons/icon.png';
+
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -21,6 +25,8 @@ function Register() {
   };
  
   return (
+    <div>
+    <IonImg id='icon' src={imgIcon} />
     <div className="register">
       <div className="register__container">
         <input
@@ -54,6 +60,7 @@ function Register() {
           Already have an account? <Link id="loginBtn" to="/login">Login</Link> now.
         </div>
       </div>
+    </div>
     </div>
   );
 }

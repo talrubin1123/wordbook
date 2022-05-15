@@ -5,7 +5,11 @@ import { useRecoilState } from "recoil";
 import {userState} from "../atom/userAtom";
 import "./login.css";
 
+import { IonImg } from '@ionic/react';
 import { logInWithEmailAndPassword, signInWithGoogle, auth } from "../firebase";
+
+import {FcGoogle} from 'react-icons/fc';
+import imgIcon from '../icons/icon.png';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,6 +26,8 @@ function Login() {
     }
   }, [user, loading]);
   return (
+    <div>
+    <IonImg id='icon' src={imgIcon} />
     <div className="login">
       <div className="login__container">
         <input
@@ -57,6 +63,7 @@ function Login() {
         }
           >
           Login with Google
+          <FcGoogle id="googleBtn"/>
         </button>
         <div>
         </div>
@@ -64,6 +71,7 @@ function Login() {
           Don't have an account? <Link id="registerBtn" to="/register">Register</Link> now.
         </div>
       </div>
+    </div>
     </div>
   );
 }

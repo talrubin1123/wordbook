@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 20vh;
 }
 .register__container {
   display: flex;
@@ -34,4 +35,10 @@
 
 #loginBtn {
   color: blue;
+}
+
+#icon {
+  width: 100vw;
+  height: 23vh;
+  margin-top: 5vh;
 }
