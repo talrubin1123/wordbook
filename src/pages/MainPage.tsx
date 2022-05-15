@@ -1,13 +1,16 @@
-import { IonContent, IonHeader, IonImg, IonPage, IonIcon, IonTitle, IonToolbar, IonButton, IonButtons } from '@ionic/react';
-import { personCircle, search, helpCircle, star, create, ellipsisHorizontal, ellipsisVertical } from 'ionicons/icons';
+import { IonHeader, IonPage } from '@ionic/react';
 
 import ToolBar from '../components/ToolBar';
+import Menu from '../components/Menu';
+
 const MainPage: React.FC = () => {
     return (
       <IonPage>
+        <Menu/>
         <IonHeader>
         </IonHeader>
         <ToolBar />
+        
       </IonPage>
     );
   };

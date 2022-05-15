@@ -1,13 +1,8 @@
 import {
   IonApp,
   setupIonicReact,
-  IonContent, IonFab,
-  IonFabButton, IonIcon
 } from '@ionic/react';
-import ToolBar from './components/ToolBar';
-import MainPage from './pages/MainPage'; 
-
-import { add, settings, share, person, arrowForwardCircle, arrowBackCircle, arrowUpCircle, logoVimeo, logoFacebook, logoInstagram, logoTwitter } from 'ionicons/icons';
+import MainPage from './pages/MainPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,12 +28,6 @@ setupIonicReact();
 const App: React.FC = () => (
   <IonApp>
     <MainPage/>
-    {/* <ToolBar /> */}
-    {/* <IonFab vertical="top" horizontal="end" slot="fixed">
-      <IonFabButton>
-        <IonIcon icon={add} />
-      </IonFabButton>
-    </IonFab> */}
   </IonApp>
 );
 

@@ -3,6 +3,14 @@ import { personCircle, ellipsisHorizontal, ellipsisVertical } from 'ionicons/ico
 import imgIcon from '../icon/icon.png';
 
 import './ToolBar.css';
+import Menu from './Menu';
+
+let disableMenu = true;
+
+const handleOpenMenu = () => {
+  disableMenu = false;
+};
+
 const ToolBar: React.FC = () => {
   return (
     <IonPage>
@@ -14,13 +22,13 @@ const ToolBar: React.FC = () => {
             </IonButton>
           </IonButtons>
           <IonButtons slot="primary">
-            <IonButton color="secondary">
+            <IonButton color="secondary" onClick={() => handleOpenMenu()}>
               <IonIcon slot="icon-only" ios={ellipsisHorizontal} md={ellipsisVertical} />
             </IonButton>
           </IonButtons>
           <IonImg src={imgIcon} slot="start" style={{ width : 100, height: 80 }}/>
         </IonToolbar>
-        
+        <Menu/>
       </IonHeader>
     </IonPage>
   );
